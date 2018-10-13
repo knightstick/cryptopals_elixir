@@ -22,4 +22,10 @@ defmodule CryptopalsElixir.ConversionTest do
 
     assert(actual == expected)
   end
+
+  test "raises an error if the string is not hex" do
+    assert_raise(ArgumentError, fn ->
+      CryptopalsElixir.Conversion.hex_to_bytes("x")
+    end)
+  end
 end
