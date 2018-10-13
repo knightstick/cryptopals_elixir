@@ -4,11 +4,12 @@ defmodule CryptopalsElixir.ConversionTest do
 
   alias CryptopalsElixir.Conversion
 
-  test "converting a single char to bytes" do
-    actual = Conversion.hex_to_bytes("0")
-    expected = <<0::8>>
+  def assert_converts_hex_to_bytes(string, bytes) do
+    assert(Conversion.hex_to_bytes(string) == bytes)
+  end
 
-    assert(actual == expected)
+  test "converting a single char to bytes" do
+    assert_converts_hex_to_bytes("0", <<0::8>>)
   end
 
   test "converting a 1 to bytes" do
