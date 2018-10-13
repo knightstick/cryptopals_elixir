@@ -77,4 +77,11 @@ defmodule CryptopalsElixir.ConversionTest do
 
     assert(actual == expected)
   end
+
+  test "a blank string" do
+    actual = CryptopalsElixir.Conversion.hex_to_bytes("")
+    expected = <<>>
+
+    assert(actual == expected)
+  end
 end
