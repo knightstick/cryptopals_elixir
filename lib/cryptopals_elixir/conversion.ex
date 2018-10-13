@@ -8,8 +8,10 @@ defmodule CryptopalsElixir.Conversion do
 
   def hex_to_bytes("0" <> char), do: <<0::8>> <> hex_to_bytes(char)
 
+  def hex_to_bytes([char]), do: hex_to_bytes(char)
+
   def hex_to_bytes(string) do
-    [head | _tail] = String.codepoints(string)
-    hex_to_bytes(head) <> hex_to_bytes(head)
+    [head | tail] = String.codepoints(string)
+    hex_to_bytes(head) <> hex_to_bytes(tail)
   end
 end
