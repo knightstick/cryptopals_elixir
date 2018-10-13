@@ -70,4 +70,11 @@ defmodule CryptopalsElixir.ConversionTest do
 
     assert(actual == expected)
   end
+
+  test "converting 3 char string" do
+    actual = CryptopalsElixir.Conversion.hex_to_bytes("abc")
+    expected = <<10::8, 11::8, 12::8>>
+
+    assert(actual == expected)
+  end
 end

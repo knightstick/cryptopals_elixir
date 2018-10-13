@@ -14,4 +14,8 @@ defmodule CryptopalsElixir.Conversion do
 
   def codepoints_to_bytes([codepoint]), do: hex_to_bytes(codepoint)
   def codepoints_to_bytes([first, second]), do: hex_to_bytes(first) <> hex_to_bytes(second)
+
+  def codepoints_to_bytes([first, second, third]) do
+    hex_to_bytes(first) <> hex_to_bytes(second) <> hex_to_bytes(third)
+  end
 end
