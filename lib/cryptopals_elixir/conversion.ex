@@ -12,9 +12,6 @@ defmodule CryptopalsElixir.Conversion do
     |> codepoints_to_bytes()
   end
 
-  def codepoints_to_bytes([codepoint]), do: hex_to_bytes(codepoint)
-  def codepoints_to_bytes([first, second]), do: hex_to_bytes(first) <> hex_to_bytes(second)
-
   def codepoints_to_bytes(list) when is_list(list) do
     list
     |> Enum.reduce(<<>>, fn codepoint, bytes ->
