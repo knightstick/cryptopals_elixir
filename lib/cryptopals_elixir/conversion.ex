@@ -7,4 +7,5 @@ defmodule CryptopalsElixir.Conversion do
   end
 
   def hex_to_bytes("00"), do: <<0::8, 0::8>>
+  def hex_to_bytes("0" <> char), do: <<0::8>> <> hex_to_bytes(char)
 end
