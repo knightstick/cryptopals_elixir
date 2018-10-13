@@ -15,4 +15,11 @@ defmodule CryptopalsElixir.ConversionTest do
 
     assert(actual == expected)
   end
+
+  test "converting a 2 to bytes" do
+    actual = CryptopalsElixir.Conversion.hex_to_bytes("2")
+    expected = <<2::size(8)>>
+
+    assert(actual == expected)
+  end
 end
