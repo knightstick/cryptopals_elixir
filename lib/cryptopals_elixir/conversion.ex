@@ -6,8 +6,6 @@ defmodule CryptopalsElixir.Conversion do
     end
   end
 
-  def hex_to_bytes("0" <> char), do: <<0::8>> <> hex_to_bytes(char)
-
   def hex_to_bytes([char]), do: hex_to_bytes(char)
 
   def hex_to_bytes(string) when is_binary(string) do
