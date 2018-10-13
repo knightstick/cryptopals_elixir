@@ -5,4 +5,6 @@ defmodule CryptopalsElixir.Conversion do
       :error -> raise ArgumentError
     end
   end
+
+  def hex_to_bytes("00"), do: <<0::8, 0::8>>
 end

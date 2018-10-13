@@ -42,4 +42,11 @@ defmodule CryptopalsElixir.ConversionTest do
 
     assert(actual == expected)
   end
+
+  test "converting two 0s to bytes" do
+    actual = CryptopalsElixir.Conversion.hex_to_bytes("00")
+    expected = <<0::8, 0::8>>
+
+    assert(actual == expected)
+  end
 end
