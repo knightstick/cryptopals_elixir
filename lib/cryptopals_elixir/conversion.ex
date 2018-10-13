@@ -9,9 +9,11 @@ defmodule CryptopalsElixir.Conversion do
   def hex_to_bytes([char]), do: hex_to_bytes(char)
 
   def hex_to_bytes(string) when is_binary(string) do
-    [head | tail] = String.codepoints(string)
-    codepoints_to_bytes([head]) <> codepoints_to_bytes(tail)
+    string
+    |> String.codepoints()
+    |> codepoints_to_bytes()
   end
 
   def codepoints_to_bytes([codepoint]), do: hex_to_bytes(codepoint)
+  def codepoints_to_bytes([first, second]), do: hex_to_bytes(first) <> hex_to_bytes(second)
 end
