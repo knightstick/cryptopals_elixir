@@ -28,4 +28,11 @@ defmodule CryptopalsElixir.ConversionTest do
       CryptopalsElixir.Conversion.hex_to_bytes("x")
     end)
   end
+
+  test "converting an a to a byte" do
+    actual = CryptopalsElixir.Conversion.hex_to_bytes("a")
+    expected = <<10::size(8)>>
+
+    assert(actual == expected)
+  end
 end
