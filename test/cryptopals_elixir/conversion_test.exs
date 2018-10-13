@@ -4,21 +4,21 @@ defmodule CryptopalsElixir.ConversionTest do
 
   test "converting a single char to bytes" do
     actual = CryptopalsElixir.Conversion.hex_to_bytes("0")
-    expected = <<0::size(8)>>
+    expected = <<0::8>>
 
     assert(actual == expected)
   end
 
   test "converting a 1 to bytes" do
     actual = CryptopalsElixir.Conversion.hex_to_bytes("1")
-    expected = <<1::size(8)>>
+    expected = <<1::8>>
 
     assert(actual == expected)
   end
 
   test "converting a 2 to bytes" do
     actual = CryptopalsElixir.Conversion.hex_to_bytes("2")
-    expected = <<2::size(8)>>
+    expected = <<2::8>>
 
     assert(actual == expected)
   end
@@ -31,14 +31,14 @@ defmodule CryptopalsElixir.ConversionTest do
 
   test "converting an a to a byte" do
     actual = CryptopalsElixir.Conversion.hex_to_bytes("a")
-    expected = <<10::size(8)>>
+    expected = <<10::8>>
 
     assert(actual == expected)
   end
 
   test "converting an f to a byte" do
     actual = CryptopalsElixir.Conversion.hex_to_bytes("f")
-    expected = <<15::size(8)>>
+    expected = <<15::8>>
 
     assert(actual == expected)
   end
