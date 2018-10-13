@@ -13,17 +13,11 @@ defmodule CryptopalsElixir.ConversionTest do
   end
 
   test "converting a 1 to bytes" do
-    actual = Conversion.hex_to_bytes("1")
-    expected = <<1::8>>
-
-    assert(actual == expected)
+    assert_converts_hex_to_bytes("1", <<1::8>>)
   end
 
   test "converting a 2 to bytes" do
-    actual = Conversion.hex_to_bytes("2")
-    expected = <<2::8>>
-
-    assert(actual == expected)
+    assert_converts_hex_to_bytes("2", <<2::8>>)
   end
 
   test "raises an error if the string is not hex" do
