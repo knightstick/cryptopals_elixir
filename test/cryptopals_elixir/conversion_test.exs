@@ -27,58 +27,34 @@ defmodule CryptopalsElixir.ConversionTest do
   end
 
   test "converting an a to a byte" do
-    actual = Conversion.hex_to_bytes("a")
-    expected = <<10::8>>
-
-    assert(actual == expected)
+    assert_converts_hex_to_bytes("a", <<10::8>>)
   end
 
   test "converting an f to a byte" do
-    actual = Conversion.hex_to_bytes("f")
-    expected = <<15::8>>
-
-    assert(actual == expected)
+    assert_converts_hex_to_bytes("f", <<15::8>>)
   end
 
   test "converting two 0s to bytes" do
-    actual = Conversion.hex_to_bytes("00")
-    expected = <<0::8, 0::8>>
-
-    assert(actual == expected)
+    assert_converts_hex_to_bytes("00", <<0::8, 0::8>>)
   end
 
   test "converting a 0 and a 1" do
-    actual = Conversion.hex_to_bytes("01")
-    expected = <<0::8, 1::8>>
-
-    assert(actual == expected)
+    assert_converts_hex_to_bytes("01", <<0::8, 1::8>>)
   end
 
   test "converting a 1 and a 1" do
-    actual = Conversion.hex_to_bytes("11")
-    expected = <<1::8, 1::8>>
-
-    assert(actual == expected)
+    assert_converts_hex_to_bytes("11", <<1::8, 1::8>>)
   end
 
   test "converting a 2 and a b" do
-    actual = Conversion.hex_to_bytes("2b")
-    expected = <<2::8, 11::8>>
-
-    assert(actual == expected)
+    assert_converts_hex_to_bytes("2b", <<2::8, 11::8>>)
   end
 
   test "converting 3 char string" do
-    actual = Conversion.hex_to_bytes("abc")
-    expected = <<10::8, 11::8, 12::8>>
-
-    assert(actual == expected)
+    assert_converts_hex_to_bytes("abc", <<10::8, 11::8, 12::8>>)
   end
 
   test "a blank string" do
-    actual = Conversion.hex_to_bytes("")
-    expected = <<>>
-
-    assert(actual == expected)
+    assert_converts_hex_to_bytes("", <<>>)
   end
 end
