@@ -34,5 +34,9 @@ defmodule CryptopalsElixir.Conversion do
     |> Enum.at(n - 26)
   end
 
+  def bitstring_to_base64(<<n::6>>) when n >= 52 and n <= 61 do
+    to_string(n - 52)
+  end
+
   def bitstring_to_base64(<<63::6>>), do: "/"
 end
