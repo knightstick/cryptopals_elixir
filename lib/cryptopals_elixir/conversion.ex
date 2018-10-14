@@ -27,6 +27,6 @@ defmodule CryptopalsElixir.Conversion do
     |> Enum.at(n)
   end
 
-  def bitstring_to_base64(<<x::6, tail::bitstring>>),
-    do: bitstring_to_base64(<<x::6>>) <> bitstring_to_base64(<<tail::bitstring>>)
+  def bitstring_to_base64(<<n::6, tail::bitstring>>),
+    do: bitstring_to_base64(<<n::6>>) <> bitstring_to_base64(<<tail::bitstring>>)
 end
