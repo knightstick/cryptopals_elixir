@@ -34,6 +34,9 @@ defmodule CryptopalsElixir.ConversionTest do
     test "converting an f to a bitstring" do
       assert_converts_hex_to_bitstring("f", <<15::4>>)
     end
+
+    test "2 0s" do
+    end
   end
 
   describe "hex_to_bytes" do
