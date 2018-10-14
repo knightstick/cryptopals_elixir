@@ -42,6 +42,22 @@ defmodule CryptopalsElixir.ConversionTest do
     test "a 0 and a 1" do
       assert_converts_hex_to_bitstring("01", <<0::4, 1::4>>)
     end
+
+    test "converting a 1 and a 1" do
+      assert_converts_hex_to_bitstring("11", <<1::4, 1::4>>)
+    end
+
+    test "converting a 2 and a b" do
+      assert_converts_hex_to_bitstring("2b", <<2::4, 11::4>>)
+    end
+
+    test "converting 3 char string" do
+      assert_converts_hex_to_bitstring("abc", <<10::4, 11::4, 12::4>>)
+    end
+
+    test "a blank string" do
+      assert_converts_hex_to_bitstring("", <<>>)
+    end
   end
 
   describe "hex_to_bytes" do
