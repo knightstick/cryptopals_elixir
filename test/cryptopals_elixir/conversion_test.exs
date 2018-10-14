@@ -4,7 +4,7 @@ defmodule CryptopalsElixir.ConversionTest do
 
   alias CryptopalsElixir.Conversion
 
-  describe "converting hex_to_bitstring" do
+  describe "hex_to_bitstring" do
     def assert_converts_hex_to_bitstring(string, bitstring) do
       assert(Conversion.hex_to_bitstring(string) == bitstring)
     end
