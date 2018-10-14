@@ -21,7 +21,7 @@ defmodule CryptopalsElixir.Conversion do
   end
 
   @base64translations "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
-  def bitstring_to_base64(<<n::6>>) when n >= 0 and n <= 63 do
+  def bitstring_to_base64(<<n::6>>) do
     @base64translations
     |> String.graphemes()
     |> Enum.at(n)
