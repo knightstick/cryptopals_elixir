@@ -36,9 +36,7 @@ defmodule CryptopalsElixir.ConversionTest do
     end
 
     test "2 0s" do
-      zero = Conversion.hex_to_bitstring("00")
-
-      assert(zero == <<0::4, 0::4>>)
+      assert_converts_hex_to_bitstring("00", <<0::4, 0::4>>)
     end
   end
 
