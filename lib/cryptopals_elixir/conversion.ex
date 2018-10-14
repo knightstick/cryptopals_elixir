@@ -20,18 +20,11 @@ defmodule CryptopalsElixir.Conversion do
     end)
   end
 
-  @uppercase_alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-  def bitstring_to_base64(<<n::6>>) when n >= 0 and n <= 25 do
-    @uppercase_alphabet
+  @alphabets "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+  def bitstring_to_base64(<<n::6>>) when n >= 0 and n <= 51 do
+    @alphabets
     |> String.graphemes()
     |> Enum.at(n)
-  end
-
-  @lowercase_alphabet "abcdefghijklmnopqrstuvwxyz"
-  def bitstring_to_base64(<<n::6>>) when n >= 26 and n <= 51 do
-    @lowercase_alphabet
-    |> String.graphemes()
-    |> Enum.at(n - 26)
   end
 
   def bitstring_to_base64(<<n::6>>) when n >= 52 and n <= 61, do: to_string(n - 52)
