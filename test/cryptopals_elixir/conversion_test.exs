@@ -67,11 +67,7 @@ defmodule CryptopalsElixir.ConversionTest do
 
     test "0" do
       bitstring = <<0::6>>
-      actual = Conversion.bitstring_to_base64(bitstring)
       base64string = "A"
-      expected = base64string
-
-      assert(actual == expected)
       assert_converts_bitstring_to_base64string(bitstring, base64string)
     end
 
