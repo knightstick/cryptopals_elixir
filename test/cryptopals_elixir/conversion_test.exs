@@ -123,9 +123,11 @@ defmodule CryptopalsElixir.ConversionTest do
   end
 
   describe "hex_to_base64" do
-    actual = Conversion.hex_to_base64("000")
-    expected = "AA"
+    test "three 0s" do
+      actual = Conversion.hex_to_base64("000")
+      expected = "AA"
 
-    assert(actual == expected)
+      assert(actual == expected)
+    end
   end
 end
