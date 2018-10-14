@@ -39,6 +39,8 @@ defmodule CryptopalsElixir.Conversion do
   def bitstring_to_base64(<<62::6>>), do: "+"
   def bitstring_to_base64(<<63::6>>), do: "/"
 
-  def bitstring_to_base64(<<x::6, x::6>>), do: "AA"
+  def bitstring_to_base64(<<x::6, x::6>>),
+    do: bitstring_to_base64(<<x::6>>) <> bitstring_to_base64(<<x::6>>)
+
   def bitstring_to_base64(<<x::6, y::6>>), do: "A" <> bitstring_to_base64(<<y::6>>)
 end
