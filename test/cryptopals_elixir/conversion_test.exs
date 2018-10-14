@@ -13,8 +13,26 @@ defmodule CryptopalsElixir.ConversionTest do
       assert_converts_hex_to_bitstring("0", <<0::4>>)
     end
 
-    test "converting a 1 to bytes" do
+    test "converting a 1 to bitstring" do
       assert_converts_hex_to_bitstring("1", <<1::4>>)
+    end
+
+    test "converting a 2 to bitstring" do
+      assert_converts_hex_to_bitstring("2", <<2::4>>)
+    end
+
+    test "raises an error if the string is not hex" do
+      assert_raise(ArgumentError, fn ->
+        Conversion.hex_to_bitstring("x")
+      end)
+    end
+
+    test "converting an a to a byte" do
+      assert_converts_hex_to_bitstring("a", <<10::4>>)
+    end
+
+    test "converting an f to a byte" do
+      assert_converts_hex_to_bitstring("f", <<15::4>>)
     end
   end
 
