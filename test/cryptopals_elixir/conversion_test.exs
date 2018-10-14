@@ -74,10 +74,7 @@ defmodule CryptopalsElixir.ConversionTest do
     end
 
     test "63" do
-      actual = Conversion.bitstring_to_base64(<<0b111111::6>>)
-      expected = "/"
-
-      assert(actual == expected)
+      assert_converts_bitstring_to_base64string(<<0b111111::6>>, "/")
     end
   end
 end
