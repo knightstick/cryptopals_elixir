@@ -4,20 +4,22 @@ defmodule CryptopalsElixir.ConversionTest do
 
   alias CryptopalsElixir.Conversion
 
+  describe "hex_to_bitstring" do
+    def assert_converts_hex_to_bitstring(string, bitstring) do
+      assert(Conversion.hex_to_bitstring(string) == bitstring)
+    end
+
+    test "converting a single char to bitstring" do
+      assert_converts_hex_to_bitstring("0", <<0::4>>)
+    end
+  end
+
   def assert_converts_hex_to_bytes(string, bytes) do
     assert(Conversion.hex_to_bytes(string) == bytes)
   end
 
-  def assert_converts_hex_to_bitstring(string, bitstring) do
-    assert(Conversion.hex_to_bitstring(string) == bitstring)
-  end
-
   test "converting a single char to bytes" do
     assert_converts_hex_to_bytes("0", <<0::8>>)
-  end
-
-  test "converting a single char to bitstring" do
-    assert_converts_hex_to_bitstring("0", <<0::4>>)
   end
 
   test "converting a 1 to bytes" do
