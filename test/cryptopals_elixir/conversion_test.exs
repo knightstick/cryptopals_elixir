@@ -40,7 +40,7 @@ defmodule CryptopalsElixir.ConversionTest do
         <<Conversion.hex_to_bitstring("0")::bitstring,
           Conversion.hex_to_bitstring("0")::bitstring>>
 
-      assert(zero == <<0::8>>)
+      assert(zero == <<0::4, 0::4>>)
     end
   end
 
