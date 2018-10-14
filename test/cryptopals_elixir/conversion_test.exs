@@ -121,4 +121,11 @@ defmodule CryptopalsElixir.ConversionTest do
       assert_converts_bitstring_to_base64string(<<7::6, 34::6, 62::6>>, "Hi+")
     end
   end
+
+  describe "hex_to_base64" do
+    actual = Conversion.hex_to_base64("000")
+    expected = "AA"
+
+    assert(actual == expected)
+  end
 end
