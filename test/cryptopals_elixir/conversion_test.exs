@@ -38,6 +38,10 @@ defmodule CryptopalsElixir.ConversionTest do
     test "2 0s" do
       assert_converts_hex_to_bitstring("00", <<0::4, 0::4>>)
     end
+
+    test "a 0 and a 1" do
+      assert_converts_hex_to_bitstring("01", <<0::4, 1::4>>)
+    end
   end
 
   describe "hex_to_bytes" do
