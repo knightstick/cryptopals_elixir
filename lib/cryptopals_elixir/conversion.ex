@@ -15,7 +15,7 @@ defmodule CryptopalsElixir.Conversion do
   def codepoints_to_bitstring(list) when is_list(list) do
     list
     |> Enum.reduce(<<>>, fn codepoint, bitstring ->
-      <<(<<bitstring::bitstring>>), hex_to_bytes(codepoint)::4>>
+      <<(<<bitstring::bitstring>>), (<<hex_to_bytes(codepoint)::4>>)>>
     end)
   end
 
