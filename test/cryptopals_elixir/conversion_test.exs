@@ -129,5 +129,12 @@ defmodule CryptopalsElixir.ConversionTest do
 
       assert(actual == expected)
     end
+
+    test "three fs" do
+      actual = Conversion.hex_to_base64("fff")
+      expected = "//"
+
+      assert(actual == expected)
+    end
   end
 end
