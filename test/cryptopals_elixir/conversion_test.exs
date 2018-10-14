@@ -12,6 +12,10 @@ defmodule CryptopalsElixir.ConversionTest do
     test "converting a single char to bitstring" do
       assert_converts_hex_to_bitstring("0", <<0::4>>)
     end
+
+    test "converting a 1 to bytes" do
+      assert_converts_hex_to_bitstring("1", <<1::4>>)
+    end
   end
 
   describe "hex_to_bytes" do
