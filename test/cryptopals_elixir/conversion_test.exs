@@ -73,6 +73,10 @@ defmodule CryptopalsElixir.ConversionTest do
       assert_converts_bitstring_to_base64string(<<1::6>>, "B")
     end
 
+    test "25" do
+      assert_converts_bitstring_to_base64string(<<25::6>>, "Z")
+    end
+
     test "63" do
       assert_converts_bitstring_to_base64string(<<0b111111::6>>, "/")
     end
