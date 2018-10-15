@@ -26,7 +26,7 @@ defmodule CryptopalsElixir.OperationsTest do
       assert_fixed_xor_eq({<<1::1>>, <<1::1>>}, <<0::1>>)
     end
 
-    test "two bit numbers" do
+    test "all zeroes and all ones" do
       assert_fixed_xor_eq({<<0b00::2>>, <<0b11::2>>}, <<0b11::2>>)
     end
   end
