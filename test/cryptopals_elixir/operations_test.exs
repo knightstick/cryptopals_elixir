@@ -37,5 +37,9 @@ defmodule CryptopalsElixir.OperationsTest do
     test "three bits mixed" do
       assert_fixed_xor_eq({<<0b101::3>>, <<0b100::3>>}, <<0b001::3>>)
     end
+
+    test "bytes" do
+      assert_fixed_xor_eq({<<0b01010101::8>>, <<0b11110000::8>>}, <<0b10100101::8>>)
+    end
   end
 end
