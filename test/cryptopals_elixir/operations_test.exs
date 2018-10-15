@@ -19,6 +19,7 @@ defmodule CryptopalsElixir.OperationsTest do
       expected = <<1::1>>
 
       assert(actual == expected)
+      assert_fixed_xor_eq({<<0::1>>, <<1::1>>}, <<1::1>>)
     end
 
     test "one 1 and one 0" do
