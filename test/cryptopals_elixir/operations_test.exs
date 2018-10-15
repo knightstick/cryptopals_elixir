@@ -4,6 +4,10 @@ defmodule CryptopalsElixir.OperationsTest do
 
   describe "fixed_xor" do
     def assert_fixed_xor_eq({input_1, input_2}, output) do
+      actual = CryptopalsElixir.Operations.fixed_xor(<<0::1>>, <<0::1>>)
+      expected = <<0::1>>
+
+      assert(actual == expected)
     end
 
     test "two 1 bit zeros" do
@@ -11,6 +15,7 @@ defmodule CryptopalsElixir.OperationsTest do
       expected = <<0::1>>
 
       assert(actual == expected)
+      assert_fixed_xor_eq({<<0::1>>, <<0::1>>}, <<0::1>>)
     end
 
     test "one 0 and one 1" do
