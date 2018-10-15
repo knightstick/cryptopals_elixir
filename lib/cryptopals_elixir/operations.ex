@@ -8,4 +8,9 @@ defmodule CryptopalsElixir.Operations do
     <<fixed_xor(<<head_1::1>>, <<head_2::1>>)::bitstring,
       fixed_xor(<<tail_1::1>>, <<tail_2::1>>)::bitstring>>
   end
+
+  def fixed_xor(<<head_1::1, tail_1::bitstring>>, <<head_2::1, tail_2::bitstring>>) do
+    <<fixed_xor(<<head_1::1>>, <<head_2::1>>)::bitstring,
+      fixed_xor(<<tail_1::bitstring>>, <<tail_2::bitstring>>)::bitstring>>
+  end
 end
