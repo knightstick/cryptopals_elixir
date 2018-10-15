@@ -23,5 +23,12 @@ defmodule CryptopalsElixir.OperationsTest do
 
       assert(actual == expected)
     end
+
+    test "two ones" do
+      actual = CryptopalsElixir.Operations.fixed_xor(<<1::1>>, <<1::1>>)
+      expected = <<0::1>>
+
+      assert(actual == expected)
+    end
   end
 end
