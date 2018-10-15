@@ -6,6 +6,8 @@ defmodule CryptopalsElixir.OperationsTest do
     def assert_fixed_xor_eq({input_1, input_2}, output) do
       actual = CryptopalsElixir.Operations.fixed_xor(input_1, input_2)
       expected = output
+
+      assert(actual == expected)
     end
 
     test "two 1 bit zeros" do
