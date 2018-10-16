@@ -20,6 +20,8 @@ defmodule CryptopalsElixir.Conversion do
     end)
   end
 
+  def bitstring_to_hex(<<0::1>>), do: "0"
+
   @base64translations "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
   def bitstring_to_base64(<<n::6>>) do
     @base64translations
