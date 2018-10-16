@@ -29,5 +29,12 @@ defmodule CryptopalsElixir.EncryptionTest do
     test "two bytes against one" do
       assert_xor_cypher_eq({<<0::8, 0::8>>, <<0::8>>}, <<0::8, 0::8>>)
     end
+
+    test "three bytes against one" do
+      assert_xor_cypher_eq(
+        {<<0b00000000::8, 0b00001111::8, 0b01010101>>, <<0b11110000>>},
+        <<0b11110000::8, 0b11111111::8, 0b10100101::8>>
+      )
+    end
   end
 end
