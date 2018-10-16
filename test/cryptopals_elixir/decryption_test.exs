@@ -48,5 +48,9 @@ defmodule CryptopalsElixir.DecryptionTest do
     test "single s scores 6" do
       assert(Decryption.EnglishScoring.score("s") == 6.0)
     end
+
+    test "two of the same char scores the same as one" do
+      assert(Decryption.EnglishScoring.score("dd") == 3.0)
+    end
   end
 end
