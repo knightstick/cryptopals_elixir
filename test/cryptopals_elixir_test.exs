@@ -10,4 +10,12 @@ defmodule CryptopalsElixirTest do
 
     assert CryptopalsElixir.hex_to_base64(input) == output
   end
+
+  test "fixed XOR" do
+    input_1 = "1c0111001f010100061a024b53535009181c"
+    input_2 = "686974207468652062756c6c277320657965"
+    expected = "746865206b696420646f6e277420706c6179"
+
+    assert CryptopalsElixir.fixed_xor(input_1, input_2) == expected
+  end
 end
