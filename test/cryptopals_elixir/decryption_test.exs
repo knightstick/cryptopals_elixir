@@ -52,5 +52,9 @@ defmodule CryptopalsElixir.DecryptionTest do
     test "two of the same char scores the same as one" do
       assert(Decryption.EnglishScoring.score("dd") == 3.0)
     end
+
+    test "scores the average of the letter weights" do
+      assert(Decryption.EnglishScoring.score("shr") == 5.0)
+    end
   end
 end
