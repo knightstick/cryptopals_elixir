@@ -140,7 +140,7 @@ defmodule CryptopalsElixir.ConversionTest do
 
   describe "bitstring_to_hex" do
     test "one 0" do
-      actual = Conversion.bitstring_to_hex(<<0::1>>)
+      actual = Conversion.bitstring_to_hex(<<0::4>>)
       expected = "0"
 
       assert(actual == expected)
