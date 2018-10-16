@@ -6,7 +6,7 @@ defmodule CryptopalsElixir.EncryptionTest do
 
   describe "xor_cypher" do
     def assert_xor_cypher_eq({input, xor_key}, expected) do
-      Encryption.xor_cypher(input, xor_key)
+      assert Encryption.xor_cypher(input, xor_key) == expected
     end
 
     test "1 byte against 0" do
