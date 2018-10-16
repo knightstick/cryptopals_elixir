@@ -165,5 +165,11 @@ defmodule CryptopalsElixir.ConversionTest do
     test "a few digits" do
       assert_bitstring_to_hex_eq(<<4::4, 0xA::4, 0xD::4, 3::4>>, "4ad3")
     end
+
+    test "back and forth" do
+      input = "abc123"
+      actual = Conversion.hex_to_bitstring(input) |> Conversion.bitstring_to_hex()
+      assert(actual == input)
+    end
   end
 end
