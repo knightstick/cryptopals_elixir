@@ -161,5 +161,9 @@ defmodule CryptopalsElixir.ConversionTest do
     test "a 1 and 2" do
       assert_bitstring_to_hex_eq(<<1::4, 2::4>>, "12")
     end
+
+    test "a few digits" do
+      assert_bitstring_to_hex_eq(<<4::4, 0xA::4, 0xD::4>>, "4ad")
+    end
   end
 end
