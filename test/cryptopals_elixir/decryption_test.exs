@@ -31,8 +31,12 @@ defmodule CryptopalsElixir.DecryptionTest do
       assert(Decryption.EnglishScoring.letter_weight("x") == 0)
     end
 
-    test "uppercase scores the same as lowercase" do
+    test "uppercase E scores the same as lowercase e" do
       assert(Decryption.EnglishScoring.letter_weight("E") == 12)
+    end
+
+    test "uppercase U scores the same as lowercase u" do
+      assert(Decryption.EnglishScoring.letter_weight("U") == 1)
     end
   end
 end
