@@ -5,12 +5,17 @@ defmodule CryptopalsElixir.EncryptionTest do
   alias CryptopalsElixir.Encryption
 
   describe "xor_cypher" do
+    def assert_xor_cypher_eq({input, xor_key}, expected) do
+      Encryption.xor_cypher(input, xor_key)
+    end
+
     test "1 byte against 0" do
       input = <<?a::8>>
       xor_key = <<0::8>>
       actual = Encryption.xor_cypher(input, xor_key)
       expected = <<?a::8>>
       assert(actual == expected)
+      assert_xor_cypher_eq({input, xor_key}, expected)
     end
 
     test "another byte against 0" do
