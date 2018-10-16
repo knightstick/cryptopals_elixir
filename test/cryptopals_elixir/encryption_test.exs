@@ -36,5 +36,17 @@ defmodule CryptopalsElixir.EncryptionTest do
         <<0b11110000::8, 0b11111111::8, 0b10100101::8>>
       )
     end
+
+    test "back and forth" do
+      input = "hello, this is an ascii string"
+      key = <<0b11001100::8>>
+
+      actual =
+        input
+        |> Encryption.xor_cypher(key)
+        |> Encryption.xor_cypher(key)
+
+      assert(actual == input)
+    end
   end
 end
