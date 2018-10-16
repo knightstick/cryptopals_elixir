@@ -152,5 +152,12 @@ defmodule CryptopalsElixir.ConversionTest do
 
       assert(actual == expected)
     end
+
+    test "one C" do
+      actual = Conversion.bitstring_to_hex(<<0xC::4>>)
+      expected = "c"
+
+      assert(actual == expected)
+    end
   end
 end

@@ -20,7 +20,8 @@ defmodule CryptopalsElixir.Conversion do
     end)
   end
 
-  def bitstring_to_hex(<<x::4>>) when x in 0..9, do: to_string(x)
+  def bitstring_to_hex(<<x::4>>) when x in 0..0xF,
+    do: Integer.to_string(x, 16) |> String.downcase()
 
   @base64translations "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
   def bitstring_to_base64(<<n::6>>) do
