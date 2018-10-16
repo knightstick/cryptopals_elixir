@@ -4,9 +4,9 @@ defmodule CryptopalsElixir.Encryption do
   def xor_cypher(<<input::8>>, <<key::8>>),
     do: Operations.fixed_xor(<<input::8>>, <<key::8>>)
 
-  def xor_cypher(<<head::8, tail::8>>, <<key::8>>) do
+  def xor_cypher(<<head::8, tail::bitstring>>, <<key::8>>) do
     <<new_head::bitstring>> = Operations.fixed_xor(<<head::8>>, <<key::8>>)
-    <<new_tail::bitstring>> = xor_cypher(<<tail::8>>, <<key::8>>)
+    <<new_tail::bitstring>> = xor_cypher(<<tail::bitstring>>, <<key::8>>)
     <<(<<new_head::bitstring>>), (<<new_tail::bitstring>>)>>
   end
 end
