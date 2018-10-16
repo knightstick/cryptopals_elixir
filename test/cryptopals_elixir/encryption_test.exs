@@ -20,5 +20,10 @@ defmodule CryptopalsElixir.EncryptionTest do
     test "zero against a byte" do
       assert_xor_cypher_eq({<<0::8>>, <<?!::8>>}, <<?!::8>>)
     end
+
+    test "two actual bytes" do
+      # 01100001 and 01100010 => 00000011
+      assert_xor_cypher_eq({"a", "b"}, <<3::8>>)
+    end
   end
 end
