@@ -26,5 +26,9 @@ defmodule CryptopalsElixir.DecryptionTest do
 
       assert actual == [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
     end
+
+    test "other letters score 0" do
+      assert(Decryption.EnglishScoring.letter_weight("x") == 0)
+    end
   end
 end

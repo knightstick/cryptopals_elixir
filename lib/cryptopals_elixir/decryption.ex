@@ -12,5 +12,6 @@ defmodule CryptopalsElixir.Decryption do
     def letter_weight("d"), do: 3
     def letter_weight("l"), do: 2
     def letter_weight("u"), do: 1
+    def letter_weight(_), do: 0
   end
 end
