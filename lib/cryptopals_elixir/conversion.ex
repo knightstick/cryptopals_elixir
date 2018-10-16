@@ -23,6 +23,9 @@ defmodule CryptopalsElixir.Conversion do
   def bitstring_to_hex(<<x::4>>) when x in 0..0xF,
     do: Integer.to_string(x, 16) |> String.downcase()
 
+  def bitstring_to_hex(<<x::4, tail::bitstring>>),
+    do: bitstring_to_hex(<<x::4>>) <> bitstring_to_hex(<<tail::bitstring>>)
+
   @base64translations "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"
   def bitstring_to_base64(<<n::6>>) do
     @base64translations
