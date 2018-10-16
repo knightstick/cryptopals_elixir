@@ -42,11 +42,11 @@ defmodule CryptopalsElixir.DecryptionTest do
 
   describe "score" do
     test "single E scores 12" do
-      assert(Decryption.EnglishScoring.score("E") == 12)
+      assert(Decryption.EnglishScoring.score("E") == 12.0)
     end
 
     test "single s scores 6" do
-      assert(Decryption.EnglishScoring.score("s") == 6)
+      assert(Decryption.EnglishScoring.score("s") == 6.0)
     end
   end
 end
