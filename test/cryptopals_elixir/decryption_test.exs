@@ -17,5 +17,14 @@ defmodule CryptopalsElixir.DecryptionTest do
 
       assert actual == [12, 11, 10, 9, 8, 7]
     end
+
+    test "top 12 letters" do
+      actual =
+        "etaoinshrdlu"
+        |> String.graphemes()
+        |> Enum.map(&Decryption.EnglishScoring.letter_weight/1)
+
+      assert actual == [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+    end
   end
 end
