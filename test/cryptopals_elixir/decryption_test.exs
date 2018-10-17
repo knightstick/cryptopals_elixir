@@ -2,7 +2,7 @@ defmodule CryptopalsElixir.DecryptionTest do
   use ExUnit.Case
   doctest CryptopalsElixir.Decryption
 
-  alias CryptopalsElixir.Decryption
+  alias CryptopalsElixir.{Decryption, Encryption}
 
   describe "letter_weights" do
     test "e scores best" do
@@ -67,16 +67,16 @@ defmodule CryptopalsElixir.DecryptionTest do
 
       xored_score =
         input
-        |> CryptopalsElixir.Encryption.xor_cypher(xor_key)
+        |> Encryption.xor_cypher(xor_key)
         |> Decryption.EnglishScoring.score()
 
       assert(original_score > xored_score)
     end
   end
 
-  describe "scoring all possible combinations" do
-    test "score_xor_key_likelihoods" do
-      input = "Hello" |> CryptopalsElixir.Encryption.xor_cypher(<<12::8>>)
+  describe "score_xor_key_likelihoods" do
+    test "scoring 0" do
+      input = "Hello" |> Encryption.xor_cypher(<<12::8>>)
 
       %{<<0::8>> => zero_score} = Decryption.score_xor_key_likelihoods(input)
 
