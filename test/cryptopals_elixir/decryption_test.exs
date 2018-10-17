@@ -56,5 +56,22 @@ defmodule CryptopalsElixir.DecryptionTest do
     test "scores the average of the letter weights" do
       assert(Decryption.EnglishScoring.score("shr") == 5.0)
     end
+
+    test "an English sentence scores higher than a xored one" do
+      input =
+        "As Bertrand Russell said the only thing that will redeem mankind is co-operation. I think we can all appreciate that now"
+
+      xor_key = <<0b10101010::8>>
+
+      original_score = Decryption.EnglishScoring.score(input)
+
+      xored_score =
+        input
+        |> CryptopalsElixir.Encryption.xor_cypher(xor_key)
+        |> IO.inspect()
+        |> Decryption.EnglishScoring.score()
+
+      assert(original_score > xored_score)
+    end
   end
 end

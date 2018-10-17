@@ -10,7 +10,7 @@ defmodule CryptopalsElixir.Decryption do
       total / String.length(string)
     end
 
-    def letter_weight(char) when is_binary(char) and byte_size(char) == 1 do
+    def letter_weight(char) when is_binary(char) do
       case String.upcase(char) do
         "E" -> 12
         "T" -> 11
