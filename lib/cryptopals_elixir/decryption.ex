@@ -8,11 +8,11 @@ defmodule CryptopalsElixir.Decryption do
           encrypted_string
           |> Encryption.xor_cypher(<<0::8>>)
         ),
-      <<1::8>> =>
-        Decryption.EnglishScoring.score(
-          encrypted_string
-          |> Encryption.xor_cypher(<<1::8>>)
-        )
+      <<1::8>> => score_xor_key(encrypted_string, <<1::8>>)
     }
+  end
+
+  defp score_xor_key(string, key) do
+    Decryption.EnglishScoring.score(string |> Encryption.xor_cypher(key))
   end
 end
