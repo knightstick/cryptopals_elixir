@@ -80,7 +80,7 @@ defmodule CryptopalsElixir.DecryptionTest do
 
       %{<<0::8>> => zero_score} = Decryption.score_xor_key_likelihoods(input)
 
-      assert(true)
+      assert(zero_score == 0)
     end
   end
 end
