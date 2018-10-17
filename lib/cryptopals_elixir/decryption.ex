@@ -3,11 +3,10 @@ defmodule CryptopalsElixir.Decryption do
   alias Decryption.EnglishScoring
 
   def score_xor_key_likelihoods(input) do
-    %{
-      <<0::8>> => score_xor_key(input, <<0::8>>),
-      <<1::8>> => score_xor_key(input, <<1::8>>),
-      <<250::8>> => score_xor_key(input, <<250::8>>)
-    }
+    [<<0::8>>, <<1::8>>, <<250::8>>]
+    |> Enum.reduce(%{}, fn key, acc ->
+      Map.put(acc, key, score_xor_key(input, key))
+    end)
   end
 
   defp score_xor_key(string, key) do
