@@ -68,7 +68,6 @@ defmodule CryptopalsElixir.DecryptionTest do
       xored_score =
         input
         |> CryptopalsElixir.Encryption.xor_cypher(xor_key)
-        |> IO.inspect()
         |> Decryption.EnglishScoring.score()
 
       assert(original_score > xored_score)
