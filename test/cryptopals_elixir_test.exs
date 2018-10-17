@@ -18,4 +18,16 @@ defmodule CryptopalsElixirTest do
 
     assert CryptopalsElixir.fixed_xor(input_1, input_2) == expected
   end
+
+  test "decrypting single-byte xor cypher" do
+    original =
+      "To recap, it is *vital* that you stay in your homes. Make no attempt to reach loved ones, and avoid all physical contact with the assailants."
+
+    encrypted =
+      original
+      |> CryptopalsElixir.Encryption.xor_cypher(<<123::8>>)
+      |> CryptopalsElixir.Conversion.bitstring_to_hex()
+
+    assert CryptopalsElixir.decrypt_xor_cypher(encrypted) == original
+  end
 end

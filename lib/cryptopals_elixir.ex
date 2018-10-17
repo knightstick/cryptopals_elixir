@@ -8,4 +8,13 @@ defmodule CryptopalsElixir do
 
     CryptopalsElixir.Conversion.bitstring_to_hex(xored)
   end
+
+  def decrypt_xor_cypher(encrypted_hexstring) do
+    {_key, decrypted} =
+      encrypted_hexstring
+      |> CryptopalsElixir.Conversion.hex_to_bitstring()
+      |> CryptopalsElixir.Decryption.decrypt_xor_cypher()
+
+    decrypted
+  end
 end
