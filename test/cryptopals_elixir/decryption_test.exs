@@ -99,7 +99,7 @@ defmodule CryptopalsElixir.DecryptionTest do
     test "scoring 250" do
       input = "Hello" |> Encryption.xor_cypher(<<96::8>>)
 
-      %{<<250::8>> => score} = Decryption.score_xor_key_likelihoods(input) |> IO.inspect()
+      %{<<250::8>> => score} = Decryption.score_xor_key_likelihoods(input)
 
       expected_score =
         input
