@@ -77,6 +77,8 @@ defmodule CryptopalsElixir.DecryptionTest do
   describe "scoring all possible combinations" do
     test "score_xor_key_likelihoods" do
       input = "Hello" |> CryptopalsElixir.Encryption.xor_cypher(<<12::8>>)
+
+      %{<<0::8>> => zero_score} = Decryption.score_xor_key_likelihoods(input)
     end
   end
 end
