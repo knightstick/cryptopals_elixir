@@ -38,6 +38,10 @@ defmodule CryptopalsElixir.DecryptionTest do
     test "uppercase U scores the same as lowercase u" do
       assert(Decryption.EnglishScoring.letter_weight("U") == 1)
     end
+
+    test "space char scores 7 too" do
+      assert(Decryption.EnglishScoring.letter_weight(" ") == 7)
+    end
   end
 
   describe "score" do

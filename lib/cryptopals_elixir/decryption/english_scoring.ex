@@ -17,6 +17,7 @@ defmodule CryptopalsElixir.Decryption.EnglishScoring do
       "O" -> 9
       "I" -> 8
       "N" -> 7
+      " " -> 7
       "S" -> 6
       "H" -> 5
       "R" -> 4
