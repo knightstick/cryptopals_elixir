@@ -1,5 +1,6 @@
 defmodule CryptopalsElixir.Decryption do
   alias CryptopalsElixir.{Decryption, Encryption}
+  alias Decryption.EnglishScoring
 
   def score_xor_key_likelihoods(encrypted_string) do
     %{
@@ -11,6 +12,6 @@ defmodule CryptopalsElixir.Decryption do
   defp score_xor_key(string, key) do
     string
     |> Encryption.xor_cypher(key)
-    |> Decryption.EnglishScoring.score()
+    |> EnglishScoring.score()
   end
 end
