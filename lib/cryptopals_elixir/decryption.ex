@@ -9,6 +9,8 @@ defmodule CryptopalsElixir.Decryption do
   end
 
   defp score_xor_key(string, key) do
-    Decryption.EnglishScoring.score(string |> Encryption.xor_cypher(key))
+    string
+    |> Encryption.xor_cypher(key)
+    |> Decryption.EnglishScoring.score()
   end
 end
