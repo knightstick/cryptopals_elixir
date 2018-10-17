@@ -95,5 +95,18 @@ defmodule CryptopalsElixir.DecryptionTest do
 
       assert(score == expected_score)
     end
+
+    test "scoring 250" do
+      input = "Hello" |> Encryption.xor_cypher(<<96::8>>)
+
+      %{<<250::8>> => score} = Decryption.score_xor_key_likelihoods(input)
+
+      expected_score =
+        input
+        |> Encryption.xor_cypher(<<250::8>>)
+        |> Decryption.EnglishScoring.score()
+
+      assert(score == expected_score)
+    end
   end
 end

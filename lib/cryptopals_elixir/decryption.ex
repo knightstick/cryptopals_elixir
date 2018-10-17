@@ -5,7 +5,8 @@ defmodule CryptopalsElixir.Decryption do
   def score_xor_key_likelihoods(input) do
     %{
       <<0::8>> => score_xor_key(input, <<0::8>>),
-      <<1::8>> => score_xor_key(input, <<1::8>>)
+      <<1::8>> => score_xor_key(input, <<1::8>>),
+      <<250::8>> => score_xor_key(input, <<250::8>>)
     }
   end
 
