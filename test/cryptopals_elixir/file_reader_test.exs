@@ -30,5 +30,17 @@ defmodule CryptopalsElixir.FileReaderTest do
 
       assert(read_bitstrings == expected)
     end
+
+    test "abc\ndef\n123\n in file" do
+      read_bitstrings = read_hex_file_from_fixture("three_lines_hex.txt")
+
+      expected = [
+        <<0xA::4, 0xB::4, 0xC::4>>,
+        <<0xD::4, 0xE::4, 0xF::4>>,
+        <<0x1::4, 0x2::4, 0x3::4>>
+      ]
+
+      assert(read_bitstrings == expected)
+    end
   end
 end
