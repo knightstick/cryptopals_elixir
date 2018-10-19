@@ -20,5 +20,14 @@ defmodule CryptopalsElixir.FileReaderTest do
 
       assert(read_bitstrings == expected)
     end
+
+    test "abc in file" do
+      fixture_path = Path.expand("fixtures", __DIR__)
+      file_path = Path.join(fixture_path, "abc_hex.txt")
+      read_bitstrings = CryptopalsElixir.FileReader.hex_file_to_bitstrings(file_path)
+      expected = [<<0xA::4, 0xB::4, 0xC::4>>]
+
+      assert(read_bitstrings == expected)
+    end
   end
 end
