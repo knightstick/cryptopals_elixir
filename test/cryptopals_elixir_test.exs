@@ -30,4 +30,18 @@ defmodule CryptopalsElixirTest do
 
     assert CryptopalsElixir.decrypt_xor_cypher(encrypted) == original
   end
+
+  test "decrypting single-byte xor cypher with score" do
+    original =
+      "To recap, it is *vital* that you stay in your homes. Make no attempt to reach loved ones, and avoid all physical contact with the assailants."
+
+    encrypted =
+      original
+      |> CryptopalsElixir.Encryption.xor_cypher(<<123::8>>)
+      |> CryptopalsElixir.Conversion.bitstring_to_hex()
+
+    %{decrypted: decrypted} = CryptopalsElixir.decrypt_xor_cypher_with_score(encrypted)
+
+    assert decrypted == original
+  end
 end
