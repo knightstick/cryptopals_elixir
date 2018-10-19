@@ -5,10 +5,13 @@ defmodule CryptopalsElixir.FileReaderTest do
   describe "reading hex strings" do
     def fixture_path(), do: Path.expand("fixtures", __DIR__)
 
-    test "one zero in file" do
-      filename = "zero_hex.txt"
+    def read_hex_file_from_fixture(filename) do
       file_path = Path.join(fixture_path(), filename)
       read_bitstrings = CryptopalsElixir.FileReader.hex_file_to_bitstrings(file_path)
+    end
+
+    test "one zero in file" do
+      read_bitstrings = read_hex_file_from_fixture("zero_hex.txt")
       expected = [<<0::4>>]
 
       assert(read_bitstrings == expected)
