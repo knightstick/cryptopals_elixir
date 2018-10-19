@@ -12,6 +12,16 @@ defmodule CryptopalsElixir.Decryption do
     {xor_key, Encryption.xor_cypher(input, xor_key)}
   end
 
+  def decrypt_xor_cypher_with_score(input) do
+    {xor_key, _score} =
+      score_xor_key_likelihoods(input)
+      |> Enum.max_by(fn {_key, score} ->
+        score
+      end)
+
+    %{key: xor_key, decrypted: Encryption.xor_cypher(input, xor_key)}
+  end
+
   def score_xor_key_likelihoods(input) do
     Enum.reduce(all_byte_combinations(), %{}, fn key, acc ->
       Map.put(acc, key, score_xor_key(input, key))

@@ -126,4 +126,17 @@ defmodule CryptopalsElixir.DecryptionTest do
     assert(key == xor_key)
     assert(decrypted_string == original)
   end
+
+  test "decrypting with score" do
+    original =
+      "As Mr. Sloan always says, there is no \"I\" in team, but there is an \"I\" in pie. And there's an \"I\" in meat pie. Anagram of meat is team... I don't know what he's talking about."
+
+    xor_key = <<123::8>>
+    input = Encryption.xor_cypher(original, xor_key)
+
+    %{key: key, decrypted: decrypted_string} = Decryption.decrypt_xor_cypher_with_score(input)
+
+    assert(key == xor_key)
+    assert(decrypted_string == original)
+  end
 end
