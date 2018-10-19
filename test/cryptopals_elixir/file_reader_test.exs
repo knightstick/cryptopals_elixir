@@ -7,7 +7,7 @@ defmodule CryptopalsElixir.FileReaderTest do
 
     def read_hex_file_from_fixture(filename) do
       file_path = Path.join(fixture_path(), filename)
-      read_bitstrings = CryptopalsElixir.FileReader.hex_file_to_bitstrings(file_path)
+      CryptopalsElixir.FileReader.hex_file_to_bitstrings(file_path)
     end
 
     test "one zero in file" do
