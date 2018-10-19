@@ -18,9 +18,7 @@ defmodule CryptopalsElixir.FileReaderTest do
     end
 
     test "one f in file" do
-      fixture_path = Path.expand("fixtures", __DIR__)
-      file_path = Path.join(fixture_path, "one_f_hex.txt")
-      read_bitstrings = CryptopalsElixir.FileReader.hex_file_to_bitstrings(file_path)
+      read_bitstrings = read_hex_file_from_fixture("one_f_hex.txt")
       expected = [<<0xF::4>>]
 
       assert(read_bitstrings == expected)
