@@ -139,5 +139,6 @@ defmodule CryptopalsElixir.DecryptionTest do
 
     assert(key == xor_key)
     assert(decrypted_string == original)
+    assert(score == Decryption.score_xor_key(input, xor_key))
   end
 end

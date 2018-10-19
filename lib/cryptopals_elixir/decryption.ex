@@ -28,14 +28,14 @@ defmodule CryptopalsElixir.Decryption do
     end)
   end
 
-  defp all_byte_combinations do
-    0b00000000..0b11111111
-    |> Enum.map(fn x -> <<x::8>> end)
-  end
-
-  defp score_xor_key(string, key) do
+  def score_xor_key(string, key) do
     string
     |> Encryption.xor_cypher(key)
     |> EnglishScoring.score()
+  end
+
+  defp all_byte_combinations do
+    0b00000000..0b11111111
+    |> Enum.map(fn x -> <<x::8>> end)
   end
 end
