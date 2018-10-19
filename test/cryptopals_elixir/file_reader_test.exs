@@ -7,7 +7,7 @@ defmodule CryptopalsElixir.FileReaderTest do
       fixture_path = Path.expand("fixtures", __DIR__)
       file_path = Path.join(fixture_path, "zero_hex.txt")
       read_bitstrings = CryptopalsElixir.FileReader.hex_file_to_bitstrings(file_path)
-      expected = [<<0::8>>]
+      expected = [<<0::4>>]
 
       assert(read_bitstrings == expected)
     end
