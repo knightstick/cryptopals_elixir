@@ -40,8 +40,10 @@ defmodule CryptopalsElixirTest do
       |> CryptopalsElixir.Encryption.xor_cypher(<<123::8>>)
       |> CryptopalsElixir.Conversion.bitstring_to_hex()
 
-    %{decrypted: decrypted} = CryptopalsElixir.decrypt_xor_cypher_with_score(encrypted)
+    %{decrypted: decrypted, score: score} =
+      CryptopalsElixir.decrypt_xor_cypher_with_score(encrypted)
 
     assert decrypted == original
+    assert score == CryptopalsElixir.Decryption.score_xor_key(original, <<0::8>>)
   end
 end
