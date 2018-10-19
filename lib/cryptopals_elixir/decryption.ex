@@ -13,13 +13,13 @@ defmodule CryptopalsElixir.Decryption do
   end
 
   def decrypt_xor_cypher_with_score(input) do
-    {xor_key, _score} =
+    {xor_key, score} =
       score_xor_key_likelihoods(input)
       |> Enum.max_by(fn {_key, score} ->
         score
       end)
 
-    %{key: xor_key, decrypted: Encryption.xor_cypher(input, xor_key)}
+    %{key: xor_key, decrypted: Encryption.xor_cypher(input, xor_key), score: score}
   end
 
   def score_xor_key_likelihoods(input) do
