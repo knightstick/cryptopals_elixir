@@ -158,5 +158,7 @@ defmodule CryptopalsElixir.DecryptionTest do
       for _ <- 0..5, into: [] do
         for _ <- 0..80, into: "", do: <<Enum.random(0..255)::8>>
       end
+
+    input = Enum.shuffle(noise ++ [encrypted])
   end
 end
