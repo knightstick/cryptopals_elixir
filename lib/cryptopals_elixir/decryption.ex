@@ -2,16 +2,6 @@ defmodule CryptopalsElixir.Decryption do
   alias CryptopalsElixir.{Decryption, Encryption}
   alias Decryption.EnglishScoring
 
-  def decrypt_xor_cypher(input) do
-    {xor_key, _score} =
-      score_xor_key_likelihoods(input)
-      |> Enum.max_by(fn {_key, score} ->
-        score
-      end)
-
-    {xor_key, Encryption.xor_cypher(input, xor_key)}
-  end
-
   def decrypt_xor_cypher_with_score(input) do
     {xor_key, score} =
       score_xor_key_likelihoods(input)
