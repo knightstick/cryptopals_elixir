@@ -138,5 +138,8 @@ defmodule CryptopalsElixir.DecryptionTest do
     noise = for _ <- 0..80, into: "", do: <<Enum.random(0..255)::8>>
 
     input = [noise, encrypted]
+
+    %{key: key, decrypted: decrypted_string, score: score} =
+      Decryption.decrypt_xor_cypher_from_list(input)
   end
 end

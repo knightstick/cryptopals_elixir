@@ -12,6 +12,14 @@ defmodule CryptopalsElixir.Decryption do
     %{key: xor_key, decrypted: Encryption.xor_cypher(input, xor_key), score: score}
   end
 
+  def decrypt_xor_cypher_from_list(list) when is_list(list) do
+    %{
+      key: nil,
+      decrypted: nil,
+      score: nil
+    }
+  end
+
   def score_xor_key_likelihoods(input) do
     Enum.reduce(all_byte_combinations(), %{}, fn key, acc ->
       Map.put(acc, key, score_xor_key(input, key))
