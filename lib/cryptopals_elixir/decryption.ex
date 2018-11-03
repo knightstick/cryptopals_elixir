@@ -14,8 +14,8 @@ defmodule CryptopalsElixir.Decryption do
 
   def decrypt_xor_cypher_from_list(list) when is_list(list) do
     list
-    |> Enum.at(1)
-    |> decrypt_xor_cypher()
+    |> Enum.map(&decrypt_xor_cypher/1)
+    |> Enum.max_by(fn %{score: score} -> score end)
   end
 
   def score_xor_key_likelihoods(input) do
