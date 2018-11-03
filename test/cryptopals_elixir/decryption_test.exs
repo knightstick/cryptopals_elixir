@@ -160,5 +160,8 @@ defmodule CryptopalsElixir.DecryptionTest do
       end
 
     input = Enum.shuffle(noise ++ [encrypted])
+
+    %{key: key, decrypted: decrypted_string, score: score} =
+      Decryption.decrypt_xor_cypher_from_list(input)
   end
 end
