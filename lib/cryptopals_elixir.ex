@@ -21,6 +21,6 @@ defmodule CryptopalsElixir do
   def decrypt_xor_cypher_with_score(encrypted_hexstring) do
     encrypted_hexstring
     |> CryptopalsElixir.Conversion.hex_to_bitstring()
-    |> CryptopalsElixir.Decryption.decrypt_xor_cypher_with_score()
+    |> CryptopalsElixir.Decryption.decrypt_xor_cypher()
   end
 end
