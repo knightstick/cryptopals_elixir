@@ -13,11 +13,9 @@ defmodule CryptopalsElixir.Decryption do
   end
 
   def decrypt_xor_cypher_from_list(list) when is_list(list) do
-    %{
-      key: nil,
-      decrypted: nil,
-      score: nil
-    }
+    list
+    |> Enum.at(1)
+    |> decrypt_xor_cypher()
   end
 
   def score_xor_key_likelihoods(input) do
