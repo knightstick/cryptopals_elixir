@@ -121,8 +121,7 @@ defmodule CryptopalsElixir.DecryptionTest do
     xor_key = <<123::8>>
     input = Encryption.xor_cypher(original, xor_key)
 
-    %{key: key, decrypted: decrypted_string, score: score} =
-      Decryption.decrypt_xor_cypher_with_score(input)
+    %{key: key, decrypted: decrypted_string, score: score} = Decryption.decrypt_xor_cypher(input)
 
     assert(key == xor_key)
     assert(decrypted_string == original)
