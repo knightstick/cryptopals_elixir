@@ -142,6 +142,7 @@ defmodule CryptopalsElixir.DecryptionTest do
     %{key: key, decrypted: decrypted_string, score: score} =
       Decryption.decrypt_xor_cypher_from_list(input)
 
-    assert key == xor_key
+    assert(key == xor_key)
+    assert(decrypted_string == original)
   end
 end
