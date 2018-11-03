@@ -141,4 +141,14 @@ defmodule CryptopalsElixir.DecryptionTest do
     assert(decrypted_string == original)
     assert(score == Decryption.score_xor_key(input, xor_key))
   end
+
+  test "decrypting one from a list" do
+    original =
+      "As Mr. Sloan always says, there is no \"I\" in team, but there is an \"I\" in pie. And there's an \"I\" in meat pie. Anagram of meat is team... I don't know what he's talking about."
+
+    xor_key = <<0b10101010::8>>
+    input = Encryption.xor_cypher(original, xor_key)
+
+    noise = for _ <- 0..80, into: "", do: <<Enum.random(0..255)::8>>
+  end
 end
