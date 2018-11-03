@@ -146,4 +146,12 @@ defmodule CryptopalsElixir.DecryptionTest do
     assert(decrypted_string == original)
     assert(score == Decryption.score_xor_key(encrypted, xor_key))
   end
+
+  test "can decrypt from a longer list" do
+    original =
+      "As Bertrand Russell said the only thing that will redeem mankind is co-operation. I think we can all appreciate that now"
+
+    xor_key = <<Enum.random(0..255)::8>>
+    encrypted = Encryption.xor_cypher(original, xor_key)
+  end
 end
