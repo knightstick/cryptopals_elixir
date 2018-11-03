@@ -35,7 +35,6 @@ defmodule CryptopalsElixir.Decryption do
   end
 
   defp all_byte_combinations do
-    0b00000000..0b11111111
-    |> Enum.map(fn x -> <<x::8>> end)
+    for x <- 0b00000000..0b11111111, into: [], do: <<x::8>>
   end
 end
