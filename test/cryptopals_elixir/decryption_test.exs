@@ -153,5 +153,10 @@ defmodule CryptopalsElixir.DecryptionTest do
 
     xor_key = <<Enum.random(0..255)::8>>
     encrypted = Encryption.xor_cypher(original, xor_key)
+
+    noise =
+      for _ <- 0..5, into: [] do
+        for _ <- 0..80, into: "", do: <<Enum.random(0..255)::8>>
+      end
   end
 end
