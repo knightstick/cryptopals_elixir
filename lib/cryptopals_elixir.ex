@@ -24,5 +24,12 @@ defmodule CryptopalsElixir do
     |> CryptopalsElixir.Decryption.decrypt_xor_cypher()
   end
 
-  def decrypt_xor_cypher_in_file(_), do: nil
+  def decrypt_xor_cypher_in_file(path) do
+    %{decrypted: decrypted} =
+      path
+      |> CryptopalsElixir.FileReader.hex_file_to_bitstrings()
+      |> CryptopalsElixir.Decryption.decrypt_xor_cypher_from_list()
+
+    decrypted
+  end
 end
