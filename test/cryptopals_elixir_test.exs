@@ -49,7 +49,7 @@ defmodule CryptopalsElixirTest do
         for _ <- 0..80, into: "", do: <<Enum.random(0..255)::8>>
       end
 
-    file_contents = Enum.shuffle(noise ++ [encrypted])
+    file_contents = Enum.shuffle(noise ++ [encrypted]) |> Enum.join("\n")
     file_path = Path.relative("tmp.txt")
     File.touch!(file_path)
     File.write!(file_path, file_contents)
@@ -57,7 +57,5 @@ defmodule CryptopalsElixirTest do
     on_exit(fn ->
       File.rm!(file_path)
     end)
-
-    decrypted = CryptopalsElixir.decrypt_xor_cypher_in_file(file_path)
   end
 end
