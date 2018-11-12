@@ -34,4 +34,14 @@ defmodule CryptopalsElixirTest do
     assert decrypted == original
     assert score == CryptopalsElixir.Decryption.score_xor_key(original, <<0::8>>)
   end
+
+  test "decrypting one line from file" do
+    original =
+      "Don't wanna be your monkey wrench, one more indecent accident, I'd rather leave than suffer this, I'll never be your monkey wrench"
+
+    encrypted =
+      original
+      |> CryptopalsElixir.Encryption.xor_cypher(<<251::8>>)
+      |> CryptopalsElixir.Conversion.bitstring_to_hex()
+  end
 end
