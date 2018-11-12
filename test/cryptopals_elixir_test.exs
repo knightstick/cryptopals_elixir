@@ -43,5 +43,12 @@ defmodule CryptopalsElixirTest do
       original
       |> CryptopalsElixir.Encryption.xor_cypher(<<251::8>>)
       |> CryptopalsElixir.Conversion.bitstring_to_hex()
+
+    noise =
+      for _ <- 0..5, into: [] do
+        for _ <- 0..80, into: "", do: <<Enum.random(0..255)::8>>
+      end
+
+    file_contents = Enum.shuffle(noise ++ [encrypted])
   end
 end
