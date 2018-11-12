@@ -46,10 +46,13 @@ defmodule CryptopalsElixirTest do
 
     noise =
       for _ <- 0..5, into: [] do
-        for _ <- 0..80, into: "", do: <<Enum.random(0..255)::8>>
+        for _ <- 0..1, into: "", do: <<Enum.random(0..255)::8>>
       end
 
-    file_contents = Enum.shuffle(noise ++ [encrypted]) |> Enum.join("\n")
+    file_contents =
+      Enum.shuffle(noise ++ [encrypted])
+      |> Enum.map(&CryptopalsElixir.Conversion.bitstring_to_hex/1)
+
     file_path = Path.relative("tmp.txt")
     File.touch!(file_path)
     File.write!(file_path, file_contents)
