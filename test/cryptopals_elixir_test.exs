@@ -52,6 +52,7 @@ defmodule CryptopalsElixirTest do
     file_contents =
       Enum.shuffle(noise ++ [encrypted])
       |> Enum.map(&CryptopalsElixir.Conversion.bitstring_to_hex/1)
+      |> Enum.join("\n")
 
     file_path = Path.relative("tmp.txt")
     File.touch!(file_path)
