@@ -50,6 +50,9 @@ defmodule CryptopalsElixirTest do
       end
 
     file_contents = Enum.shuffle(noise ++ [encrypted])
-    File.touch!(Path.relative("tmp.txt"))
+    file_path = Path.relative("tmp.txt")
+    File.touch!(file_path)
+    File.write!(file_path, file_contents)
+    File.rm!(file_path)
   end
 end
