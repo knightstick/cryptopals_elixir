@@ -23,4 +23,6 @@ defmodule CryptopalsElixir do
     |> CryptopalsElixir.Conversion.hex_to_bitstring()
     |> CryptopalsElixir.Decryption.decrypt_xor_cypher()
   end
+
+  def decrypt_xor_cypher_in_file(_), do: nil
 end
