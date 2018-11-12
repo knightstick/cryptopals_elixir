@@ -57,5 +57,6 @@ defmodule CryptopalsElixirTest do
     on_exit(fn -> File.rm!(file_path) end)
 
     decrypted = CryptopalsElixir.decrypt_xor_cypher_in_file(file_path)
+    assert(decrypted == original)
   end
 end
