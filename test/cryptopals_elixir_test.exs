@@ -57,7 +57,8 @@ defmodule CryptopalsElixirTest do
     file_path = Path.relative("tmp.txt")
     File.touch!(file_path)
     File.write!(file_path, file_contents)
-
     on_exit(fn -> File.rm!(file_path) end)
+
+    CryptopalsElixir.FileReader.hex_file_to_bitstrings(file_path)
   end
 end
