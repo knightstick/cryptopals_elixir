@@ -46,7 +46,7 @@ defmodule CryptopalsElixirTest do
 
     noise =
       for _ <- 0..5, into: [] do
-        for _ <- 0..1, into: "", do: <<Enum.random(0..255)::8>>
+        for _ <- 0..2, into: "", do: <<Enum.random(0..255)::8>>
       end
 
     file_contents =
