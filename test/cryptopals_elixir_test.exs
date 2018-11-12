@@ -39,10 +39,7 @@ defmodule CryptopalsElixirTest do
     original =
       "Don't wanna be your monkey wrench, one more indecent accident, I'd rather leave than suffer this, I'll never be your monkey wrench"
 
-    encrypted =
-      original
-      |> CryptopalsElixir.Encryption.xor_cypher(<<251::8>>)
-      |> CryptopalsElixir.Conversion.bitstring_to_hex()
+    encrypted = original |> CryptopalsElixir.Encryption.xor_cypher(<<251::8>>)
 
     noise =
       for _ <- 0..5, into: [] do
