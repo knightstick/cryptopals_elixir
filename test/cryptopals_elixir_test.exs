@@ -54,8 +54,6 @@ defmodule CryptopalsElixirTest do
     File.touch!(file_path)
     File.write!(file_path, file_contents)
 
-    on_exit(fn ->
-      File.rm!(file_path)
-    end)
+    on_exit(fn -> File.rm!(file_path) end)
   end
 end
