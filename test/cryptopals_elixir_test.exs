@@ -53,6 +53,9 @@ defmodule CryptopalsElixirTest do
     file_path = Path.relative("tmp.txt")
     File.touch!(file_path)
     File.write!(file_path, file_contents)
-    File.rm!(file_path)
+
+    on_exit(fn ->
+      File.rm!(file_path)
+    end)
   end
 end
