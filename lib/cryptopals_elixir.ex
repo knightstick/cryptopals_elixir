@@ -1,4 +1,7 @@
 defmodule CryptopalsElixir do
+  @doc """
+  Converts the given string of hexadecimal digits to its base64 representation
+  """
   def hex_to_base64(hexstring), do: CryptopalsElixir.Conversion.hex_to_base64(hexstring)
 
   def fixed_xor(hexstring_1, hexstring_2) do
