@@ -23,3 +23,5 @@ erl_crash.dump
 cryptopals_elixir-*.tar
 
 .elixir_ls/
+
+.vscode/
